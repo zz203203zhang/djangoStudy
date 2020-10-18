@@ -1,3 +1,2 @@
-# djangoStudy
-# djangoStudy
-# djangoStudy
+# Python Django Notes
+## 
