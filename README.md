@@ -48,9 +48,47 @@ Web服务网关接口
 + STATIC_URL : 静态文件访问路径 
 
     
-    
+  
+## 3. URL的使用
+### 3.1. urls.py
+默认在主目录中，主路由配置文件，会包含最基本的地址映射。
+作用：通过urls中定义好的地址找到对应的视图处理函数
+### 3.2. url语法
 
+作用：为了匹配用户的访问路径
 
+from django.conf.urls import url
+
+语法：
+
+​	url(regex,views,kwargs=None,name=None)
+
+	+ regex：允许是正则表达式，匹配请求的url
+	+ views：对应的视图处理函数的名称
+	+ kwargs：字典，用于向views传参，如果没有参数可省略
+	+ name：为url起别名，在地址反向解析的时候使用
+
+### 3.3. 通过url向视图传参
+
+#### 3.3.1. 使用正则表达式传参
+
+使用子组传参，一个子组就是一个参数，要传递多个参数的话需要使用多个子组，中间用 / 隔开
+
+子组 - () 一个小括号表示一个子组
+
+`````` python
+urlpatterns = [
+  # 当访问路径是show/的时候，交给show——views处理
+  url(r'^show/$', show_views),
+  # 当访问路径是show/两位数字的时候，交给show1_views处理
+  url(r'^show/(\d{2})/$', show1_views),
+]
+
+views.py
+def show1_views(request, num1):
+  # num1表示就是路径“show/”后面的第一个参数
+  pass
+``````
 
 
 
