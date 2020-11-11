@@ -90,6 +90,17 @@ def show1_views(request, num1):
   pass
 ``````
 
+#### 3.3.2. 使用url()第三个参数 - 字典传参
+
+``````python
+dic = {
+  'name': 'number',
+  'age': 18,
+}
+
+url(r'^show3/$', show3_views, dic)
+``````
+
 
 
 
