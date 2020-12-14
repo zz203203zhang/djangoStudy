@@ -13,7 +13,7 @@ Cpu_s(){
 }
 
 Mem_s(){
-    Mem=`ps aux | grep $Pid | grep $Pro | grep -v grep | awk '{print $3}'`
+    Mem= `ps aux | grep $Pid | grep $Pro | grep -v grep | awk '{print $3}'`
 }
 
 Result(){
